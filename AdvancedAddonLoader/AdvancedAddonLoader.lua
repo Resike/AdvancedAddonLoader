@@ -17,12 +17,13 @@ end
 function AdvancedAddonLoader:AddonLoaded()
 	local addonNum = 19
 	local ACPLoaded = false
-	local loaded = true
+	local enabled = false
 	local prefix = ""
 
 	if IsAddOnLoaded("ACP") then
 		addonNum = 20
 		ACPLoaded = true
+		enabled = true
 		prefix = "ACP_"
 	end
 
@@ -47,9 +48,9 @@ function AdvancedAddonLoader:AddonLoaded()
 				if ACPLoaded then
 					local name = GetAddOnInfo(self.addon)
 					if name == "ACP" then
-						loaded = not loaded
-						ACP:AddonList_Enable(self.addon, loaded, IsShiftKeyDown(), IsControlKeyDown(), self.category)
-						if loaded then
+						enabled = not enabled
+						ACP:AddonList_Enable(self.addon, enabled, IsShiftKeyDown(), IsControlKeyDown(), self.category)
+						if enabled then
 							_G[prefix.."AddonListEntry"..i.."Title"]:SetTextColor(1, 0.78, 0)
 						else
 							_G[prefix.."AddonListEntry"..i.."Title"]:SetTextColor(0.5, 0.5, 0.5)

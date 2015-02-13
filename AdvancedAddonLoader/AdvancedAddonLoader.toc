@@ -1,6 +1,6 @@
 ## Interface: 60000
 ## Title: Advanced Addon Loader
-## Version: 1.0
+## Version: 1.1
 ## Author: Resike
 ## Notes: Allows the user to enable/disable multiple addons at once with the right click.
 ## DefaultState: Enabled
